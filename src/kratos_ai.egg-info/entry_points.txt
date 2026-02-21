@@ -1,0 +1,2 @@
+[console_scripts]
+kratos = kratos_ai.cli:main

@@ -207,7 +207,7 @@ class KnowledgeBase:
         normalized = re.sub(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", "<IP>", normalized)
         
         # Remove numbers (but keep error codes)
-        normalized = re.sub(r"(?<\![A-Z])\d{3,}(?\![A-Z])", "<NUM>", normalized)
+        normalized = re.sub(r"(?<![A-Z])\d{3,}(?![A-Z])", "<NUM>", normalized)
         
         # Remove pod-specific suffixes
         normalized = re.sub(r"-[a-z0-9]{5,10}(-[a-z0-9]{5})?", "-<POD_SUFFIX>", normalized)

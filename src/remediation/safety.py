@@ -47,7 +47,7 @@ class SafetyValidation:
             return f"SAFE ({passed}/{total} checks passed, risk: {self.overall_risk.value})"
         else:
             failed = [c.name for c in self.checks if not c.passed and c.blocking]
-            return f"BLOCKED by: {, .join(failed)}"
+            return f"BLOCKED by: " + ", ".join(failed)
 
 
 class SafetyValidator:
@@ -132,7 +132,7 @@ class SafetyValidator:
         checks.append(namespace_check)
         if not namespace_check.passed:
             requires_approval = True
-            approval_reason = f"Target is in protected namespace: {target_resource.get(namespace)}"
+            approval_reason = f"Target is in protected namespace: {target_resource.get('namespace')}"
         
         # Check 4: Protected workload
         workload_check = self._check_protected_workload(target_resource)
@@ -219,7 +219,7 @@ class SafetyValidator:
     
     def _check_cooldown(self, target_resource: Dict[str, Any]) -> SafetyCheck:
         """Check if target is in cooldown period"""
-        resource_key = f"{target_resource.get(kind)}/{target_resource.get(namespace)}/{target_resource.get(name)}"
+        resource_key = f"{target_resource.get('kind')}/{target_resource.get('namespace')}/{target_resource.get('name')}"
         
         if resource_key in self.recent_targets:
             last_action = self.recent_targets[resource_key]
@@ -374,7 +374,7 @@ class SafetyValidator:
         now = datetime.utcnow()
         self.action_history.append(now)
         
-        resource_key = f"{target_resource.get(kind)}/{target_resource.get(namespace)}/{target_resource.get(name)}"
+        resource_key = f"{target_resource.get('kind')}/{target_resource.get('namespace')}/{target_resource.get('name')}"
         self.recent_targets[resource_key] = now
         
         logger.info(f"Recorded action on {resource_key}")

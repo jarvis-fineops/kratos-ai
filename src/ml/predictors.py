@@ -132,7 +132,7 @@ class AnomalyDetector(BasePredictor):
             if z_score >= self.anomaly_threshold:
                 anomalies.append(metric_name)
                 evidence.append(
-                    f"{metric_name}={value:.2f} is {z_score:.1f}σ from mean {stats[mean]:.2f}"
+                    f"{metric_name}={value:.2f} is {z_score:.1f}σ from mean {stats['mean']:.2f}"
                 )
             elif z_score >= self.warning_threshold:
                 evidence.append(

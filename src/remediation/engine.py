@@ -437,7 +437,7 @@ class RemediationEngine:
         rollback_plan = self._generate_rollback_plan(action, parameters)
         
         return Explanation(
-            summary=f"{action.value} to {resolve if incident else prevent} {incident.type.value if incident else prediction.incident_type.value}",
+            summary=f"{action.value} to {'resolve' if incident else 'prevent'} {incident.type.value if incident else prediction.incident_type.value}",
             steps=steps,
             risk_assessment=risk_assessment,
             rollback_plan=rollback_plan,
