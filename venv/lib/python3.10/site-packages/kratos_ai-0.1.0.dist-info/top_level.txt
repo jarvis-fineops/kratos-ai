@@ -1,7 +1,0 @@
-api
-core
-knowledge
-kratos_ai
-ml
-predictors
-remediation
