@@ -6,8 +6,8 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Callable
 import json
 
-from .safety import SafetyValidator, SafetyValidation
-from ..core.types import (
+from remediation.safety import SafetyValidator, SafetyValidation
+from core.types import (
     Incident,
     IncidentType,
     Prediction,

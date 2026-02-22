@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 from enum import Enum
 
-from .types import (
+from core.types import (
     Incident,
     IncidentType,
     IncidentSeverity,
@@ -17,9 +17,9 @@ from .types import (
     KubernetesResource,
     ResourceMetrics,
 )
-from .knowledge_base import KnowledgeBase
-from ..ml.predictors import FailurePredictor, AnomalyDetector, TimeSeriesForecaster
-from ..remediation.engine import RemediationEngine, RemediationPlan
+from core.knowledge_base import KnowledgeBase
+from ml.predictors import FailurePredictor, AnomalyDetector, TimeSeriesForecaster
+from remediation.engine import RemediationEngine, RemediationPlan
 
 logger = logging.getLogger(__name__)
 

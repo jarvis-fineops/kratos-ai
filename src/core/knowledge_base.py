@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import hashlib
 
-from .types import (
+from core.types import (
     Incident,
     IncidentType,
     IncidentSeverity,
